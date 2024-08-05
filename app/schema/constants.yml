@@ -1,0 +1,27 @@
+name: constants
+metadata:
+  display_name: Constants
+  description: Constant details
+  public_read: true
+  public_write: false
+  public_delete: false
+  collection: true
+properties:
+  - name: name
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: Name
+      display_priority: 2
+      table_display: true
+  - name: object
+    type: array
+    metadata:
+      type: array
+      private: false
+      required: false
+      display_name: Object
+      display_priority: 1
+      table_display: false

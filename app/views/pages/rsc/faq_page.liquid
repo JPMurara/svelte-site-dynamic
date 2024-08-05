@@ -1,0 +1,17 @@
+---
+slug: rsc/faq_page
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/faq_page.liquid
+---
+{%- liquid
+  graphql faq_query = "faq_page_get"
+  if faq_query.records.results
+    assign response = faq_query.records.results
+  else
+    assign response = '{"error": "can not find about resources"}'
+    response_status 400
+  endif
+-%}
+{{- response -}}

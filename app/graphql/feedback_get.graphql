@@ -1,0 +1,18 @@
+query blogs_get($per_page: Int = 2000, $page: Int = 1) {
+	records(
+		per_page: $per_page
+		page: $page
+		filter: {
+			table: { exact: "feedback_form" }
+			properties: { name: "approve_review", value_boolean: true }
+		}
+	) {
+		results {
+			id
+			created_at
+			updated_at
+			table
+			properties
+		}
+	}
+}

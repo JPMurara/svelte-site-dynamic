@@ -1,0 +1,17 @@
+---
+slug: rsc/area_pages_headings
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/area_pages_headings.liquid
+---
+{%- liquid
+  graphql query = "area_pages_headings_get"
+  if query.records.results
+    assign response = query.records.results
+  else
+    assign response = '{"error": "can not find about resources"}'
+    response_status 400
+  endif
+-%}
+{{- response -}}

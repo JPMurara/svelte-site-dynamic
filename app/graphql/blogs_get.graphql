@@ -1,0 +1,19 @@
+query blogs_get($per_page: Int = 2000, $page: Int = 1, $slug: String) {
+	records(
+		per_page: $per_page
+		page: $page
+		filter: { table: { exact: "blogs" }, properties: { name: "slug", value: $slug } }
+	) {
+		results {
+			id
+			created_at
+			updated_at
+			table
+			properties
+			side_menu: related_record(join_on_property: "side_menu", table: "side_menu") {
+				id
+				properties
+			}
+		}
+	}
+}

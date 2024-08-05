@@ -1,0 +1,17 @@
+query infoPages($per_page: Int = 30, $page: Int = 1) {
+	models(
+		filter: { name: { exact: "modules/infopages/info_collection_page" } }
+		per_page: $per_page
+		page: $page
+		sort: { id: { order: ASC } }
+	) {
+		results {
+			id
+			name: property(name: "meta_title")
+			slug: property(name: "slug")
+			content: property(name: "content")
+			meta_desc: property(name: "meta_desc")
+			id
+		}
+	}
+}

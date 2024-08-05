@@ -1,0 +1,13 @@
+---
+slug: rsc/presigned_url
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/presigned_url.liquid
+---
+
+
+{%- liquid
+  graphql g = "get_presign_url"
+-%}
+{{- g -}}

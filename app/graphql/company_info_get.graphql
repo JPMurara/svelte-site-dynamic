@@ -1,0 +1,51 @@
+query company_info_get($per_page: Int = 100, $page: Int = 1) {
+	constants: records(
+		per_page: $per_page,
+		page: $page
+		filter: {table: {exact: "constants"}}
+		) {
+		results {
+			name: property(name: "name")
+			object: property_array(name:"object")
+		}
+	}
+  mainServices: records(
+		per_page: 100
+		page: 1
+		filter: {table: {exact: "main_services"}}
+	) {
+		results {
+			slug: property(name: "slug"),
+      title: property(name: "title"),
+      meta_desc: property(name: "meta_desc"),
+			meta_title: property(name: "meta_title"),
+		}
+	}
+	mainServicesMenu: records(
+		per_page: 1
+		page: 1
+		filter: {table: {exact: "menus"}, properties: {name: "title", value: "Main Nav"}}
+	) {
+		results {
+			menu: property_array(name: "menu_items")
+		}
+	}
+	moreLinksMenu: records(
+		per_page: 1
+		page: 1
+		filter: {table: {exact: "menus"}, properties: {name: "title", value: "More Links"}}
+	) {
+		results {
+			menu: property_array(name: "menu_items")
+		}
+	}
+	serviceAreaMenu: records(
+		per_page: 1
+		page: 1
+		filter: {table: {exact: "menus"}, properties: {name: "title", value: "Service Area Menu"}}
+	) {
+		results {
+			menu: property_array(name: "menu_items")
+		}
+	}
+}

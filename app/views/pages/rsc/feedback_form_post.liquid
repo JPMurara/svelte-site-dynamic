@@ -1,0 +1,56 @@
+---
+slug: rsc/feedback_form
+method: post
+layout: ""
+response_headers: >
+  {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "https://www.getperforming.com/",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "Authorization, Content-Type, Origin, Accept",
+    "Access-Control-Allow-Methods": "POST, OPTIONS"
+  }
+---
+{% log context.params %}
+{% log context.params.rsc %}
+{%- if context.params.rsc -%}
+  {% assign resource = context.params.rsc | parse_json %}
+  {% assign resource_properties = '[]' | parse_json %}
+  {% assign bot_error = true %}
+
+  {%- for field in resource -%}
+    {% if field[0] == "anteater" %}
+      {% log field[1]
+        , type: "honeypot" %}
+      {% if field[1] == "" %}
+        {% assign bot_error = false %}
+      {% endif %}
+    {% else %}
+      {% parse_json prop %}
+        { "name": "{{ field[0] }}","value": "{{ field[1] }}" }
+      {% endparse_json %}
+      {% assign resource_properties = resource_properties | add_to_array: prop %}
+    {% endif %}
+  {% endfor %}
+
+  {% if bot_error %}
+    {%- response_status 200 -%}
+    {%- assign res = '{"errors": [{ "message": "you have been flagged as a bot. if this is not the case please refresh the page and fill in the form without using autofill" }] }' | parse_json -%}
+  {% else %}
+    {%- graphql p = "feedback_form_create" properties: resource_properties -%}
+    {%- if p.record_create -%}
+      {%- assign res = '{"status": "success", "message": "resource successfully created"}' | parse_json -%}
+    {%- elsif p.errors -%}
+      {%- response_status 400 -%}
+      {%- assign res = p -%}
+    {%- else -%}
+      {%- response_status 400 -%}
+      {%- assign res = '{"errors": [{ "message": "unknown error" }] }' | parse_json -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- else -%}
+  {%- response_status 414 -%}
+  {%- assign res = '{"errors": [{ "message": "missing or malformed request object" }] }' | parse_json -%}
+{%- endif -%}
+
+{{- res -}}

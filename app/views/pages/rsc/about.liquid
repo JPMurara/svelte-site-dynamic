@@ -1,0 +1,17 @@
+---
+slug: rsc/about
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/about.liquid
+---
+{%- liquid
+  graphql about_query = "about_get"
+  if about_query.records.results.first
+    assign response = about_query.records.results.first
+  else
+    assign response = '{"error": "can not find about resources"}'
+    response_status 400
+  endif
+-%}
+{{- response -}}

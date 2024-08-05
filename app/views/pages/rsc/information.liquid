@@ -1,0 +1,30 @@
+---
+slug: rsc/information
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/information.liquid
+---
+{%- liquid
+  if context.params.slug3
+    assign template = "/rsc/information/{+third}"
+    assign extract = context.location.pathname | extract_url_params: template
+    graphql g = "information_get" slug: extract.third
+    if g.models.results
+      assign response = g.models.results.first
+    else
+      assign response = '{"error": "query error"}'
+      response_status 400
+    endif
+  else
+    graphql g = "information_get"
+    if g.models.results
+      assign response = g.models.results
+    else
+      assign response = '{"error": "query error"}'
+      response_status 400
+    endif
+  endif
+-%}
+
+{{- response -}}

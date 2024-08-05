@@ -1,0 +1,72 @@
+name: blogs
+metadata:
+  display_name: Blogs
+  description: A collection of blog posts
+  public_read: true
+  public_write: false
+  public_delete: false
+  collection: true
+properties:
+  - name: content
+    type: text
+    metadata:
+      type: rich_text
+      private: false
+      required: false
+      display_name: Content
+      display_priority: 0
+      table_display: false
+  - name: description
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: false
+      display_name: Description
+      display_priority: 4
+      table_display: false
+  - name: feature_image
+    type: string
+    metadata:
+      type: image
+      private: false
+      required: false
+      display_name: Feature Image
+      display_priority: 5
+      table_display: false
+  - name: meta_desc
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: false
+      display_name: Meta Desc
+      display_priority: 6
+      table_display: false
+  - name: meta_title
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: Meta Title
+      display_priority: 8
+      table_display: false
+  - name: slug
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: Slug
+      display_priority: 9
+      table_display: true
+  - name: title
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: Title
+      display_priority: 10
+      table_display: true

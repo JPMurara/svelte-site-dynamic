@@ -1,0 +1,8 @@
+mutation default_form_create($properties: [PropertyInputType]!) {
+	record_create(
+		record: { properties: $properties, table: "default_form" }
+		form_name: "default_form"
+	) {
+		id
+	}
+}

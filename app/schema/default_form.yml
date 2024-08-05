@@ -1,0 +1,99 @@
+name: default_form
+metadata:
+  display_name: Web Forms
+  description: default CTA/Contact form
+  public_read: false
+  public_write: true
+  public_delete: false
+  collection: true
+properties:
+  - name: name
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: true
+      display_name: Name
+      display_priority: 10
+      table_display: true
+  - name: email
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: true
+      display_name: Email
+      display_priority: 8
+      table_display: true
+  - name: phone
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: true
+      display_name: Phone
+      display_priority: 8
+      table_display: false
+  - name: location
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: true
+      display_name: location
+      display_priority: 3
+      table_display: false
+  - name: interest
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: true
+      display_name: interest
+      display_priority: 3
+      table_display: false
+  - name: message
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: true
+      display_name: Message
+      display_priority: 3
+      table_display: false
+  - name: form_type
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: Form Type
+      display_priority: 7
+      table_display: false
+  - name: page
+    type: string
+    metadata:
+      type: string
+      private: false
+      required: false
+      display_name: Page
+      display_priority: 2
+      table_display: false
+  - name: webform
+    type: boolean
+    metadata:
+      type: boolean
+      private: false
+      required: true
+      display_name: Webform
+      display_priority: 0
+      table_display: false
+  - name: honeypot
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: honeypot
+      display_priority: 7
+      table_display: false

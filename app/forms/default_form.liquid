@@ -1,0 +1,37 @@
+---
+name: default_form
+resource: default_form
+resource_owner: anyone
+email_notifications:
+- default_autoresponder
+- default_workflow
+fields:
+  properties:
+    name:
+      validation:
+        presence: 
+          message: Name is required
+    email:
+      validation:
+        presence:
+          message: Email is required
+        email: true
+    phone:
+      validation:
+        presence: 
+          message: Phone number is required
+    location:
+    interest:
+    message:
+    form_type:
+    page:
+    webform:
+    honeypot:
+default_payload: |-
+  {
+    "properties_attributes": 
+    {
+      "webform": true
+    }
+  }
+---

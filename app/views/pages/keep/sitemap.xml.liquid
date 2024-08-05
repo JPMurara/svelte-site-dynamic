@@ -1,0 +1,28 @@
+---
+slug: sitemap
+layout_name: ""
+static_cache:
+  expire: 3600
+metadata:
+  type: "admin"
+  name: "sitemap"
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ {%- graphql g = 'sitemap' -%}
+  {%- for page in g.pages.results -%}
+    {%- if page.slug == '/' %}{% assign slug = page.slug %}{% else %}{% assign slug = '/' | append: page.slug | strip -%}{%- endif -%}
+ <url>
+  <loc>https://{{ context.location.host }}{{ slug }}</loc>
+  <lastmod>
+   {{- page.updated_at | date: "%Y-%m-%d" -}}
+  </lastmod>
+  <changefreq>
+   {{- page.metadata.changefreq | default: 'monthly' -}}
+  </changefreq>
+  <priority>
+   {{- page.metadata.priority | default: 0.5 -}}
+  </priority>
+ </url>
+ {%- endfor -%}
+</urlset>

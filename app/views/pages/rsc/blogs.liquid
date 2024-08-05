@@ -1,0 +1,33 @@
+---
+slug: rsc/blogs
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/blogs.liquid
+---
+{%- liquid
+  if context.params.post
+    graphql g = "blogs_get" slug: context.params.post
+    if g.records.results.first
+      assign response = g.records.results.first
+    else
+      assign response = '{"error": "can not find blog resources"}'
+      response_status 400
+    endif
+  else
+    if context.params.per_page
+      assign per_page = context.params.per_page | plus: 0 | default: 2000
+      graphql g = "blogs_get" per_page: per_page
+      assign page = context.params.pageno | plus: 0 | default: undefined
+    else
+      graphql g = "blogs_get"
+    endif
+    if g.records.results
+      assign response = g.records.results
+    else
+      assign response = '{"error": "query error"}'
+      response_status 400
+    endif
+  endif
+-%}
+{{- response -}}

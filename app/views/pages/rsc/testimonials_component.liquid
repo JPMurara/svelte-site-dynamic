@@ -1,0 +1,17 @@
+---
+slug: rsc/testimonials_component
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/testimonials_component.liquid
+---
+{%- liquid
+  graphql query = "testimonials_component_get"
+  if query.records.results.first
+    assign response = query.records.results.first
+  else
+    assign response = '{"error": "can not find about resources"}'
+    response_status 400
+  endif
+-%}
+{{- response -}}

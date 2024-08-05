@@ -1,0 +1,17 @@
+---
+slug: rsc/why_component
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/why_component.liquid
+---
+{%- liquid
+  graphql query = "why_component_get"
+  if query.records.results.first
+    assign response = query.records.results.first
+  else
+    assign response = '{"error": "can not find about resources"}'
+    response_status 400
+  endif
+-%}
+{{- response -}}

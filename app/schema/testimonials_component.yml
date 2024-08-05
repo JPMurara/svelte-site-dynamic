@@ -1,0 +1,45 @@
+name: testimonials_component
+metadata:
+  display_name: Component Testimonials
+  description: testimonials component data
+  public_read: true
+  public_write: false
+  public_delete: false
+  collection: true
+properties:
+  - name: pretestimonials
+    type: array   
+    metadata:     
+      type: array
+      private: false
+      required: false
+      display_name: pre testimonials titles
+      table_display: false
+      display_priority: 9
+  - name: title
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: component title
+      display_priority: 8
+      table_display: true
+  - name: subtitle
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: component subtitle
+      display_priority: 7
+      table_display: false
+  - name: testimonials
+    type: array   
+    metadata:     
+      type: array
+      private: false
+      required: false
+      display_name: testimonials data
+      table_display: false
+      display_priority: 6

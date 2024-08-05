@@ -1,0 +1,11 @@
+query contact_get($per_page: Int = 2000, $page: Int = 1) {
+	records(
+		per_page: $per_page
+		page: $page
+		filter: { table: { exact: "contact_single" } }
+	) {
+		results {
+			properties
+		}
+	}
+}

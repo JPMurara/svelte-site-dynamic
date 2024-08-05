@@ -1,0 +1,8 @@
+mutation feedback_form_create($properties: [PropertyInputType]!) {
+	record_create(
+		record: { properties: $properties, table: "feedback_form" }
+		form_name: "feedback_form"
+	) {
+		id
+	}
+}

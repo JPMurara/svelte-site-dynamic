@@ -1,0 +1,22 @@
+---
+slug: rsc/side_menu
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/side_menu.liquid
+---
+{%- liquid
+  if context.params.slug3
+    assign response = '{"error": "no resouce found"}'
+    response_status 400
+  else
+    graphql g = "side_menu_get"
+    if g.records.results
+      assign response = g.records.results
+    else
+      assign response = '{"error": "query error"}'
+      response_status 400
+    endif
+  endif
+-%}
+{{- response -}}

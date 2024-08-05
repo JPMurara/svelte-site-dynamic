@@ -1,0 +1,17 @@
+---
+slug: rsc/fetch_main_services_slugs
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/fetch_main_services_slugs.liquid
+---
+{%- liquid
+    graphql query = "fetch_main_services_slugs_get"
+    if query.records.results
+      assign response = query.records.results
+    else
+      assign response = '{"error": "no main services found"}'
+      response_status 400
+    endif
+-%}
+{{- response -}}

@@ -1,0 +1,29 @@
+---
+slug: rsc/images
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/images.liquid
+---
+<div class="row mt-5">
+  <div class="col-12">
+    <h3>Instance assets, including this module</h3>
+
+    <table class="table table-sm table-striped" data-result="assets">
+      <thead>
+        <tr>
+          <th>Asset path</th>
+          <th>Resolved url</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for asset in asset_url %}
+          <tr>
+            <td>{{ asset[0] }}</td>
+            <td>{{ asset[1] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+---
+name: feedback_autoresponder
+to: '{{ form.properties.email }}'
+from: 'noreply@probityweb.com.au'
+reply_to: 'Get Performing <success@getperforming.com>'
+subject: Thanks for leaving feedback
+bcc:
+cc:
+delay: 0
+enabled: true
+trigger_condition: true
+---
+<p>Dear {{ form.properties.name }},</p>
+<h2>Thank you for your feedback.</h2>
+<p>Firstly, let us apologise if we didn't meet your expectations.</p>
+<p>We strive to offer a professional service that will deliver the best possible outcomes to our customers. When we don't meet this it is important that we get valuable feedback from you so we can rectify the issue and prevent it from happening again.</p>
+<p>The information you have provided will be kept confidential and only used internally to improve our systems and service.</p>
+
+<p>Once again thank you for taking the time to submit your feedback. <br>
+  Get Performing</p>

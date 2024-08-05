@@ -1,0 +1,17 @@
+---
+to: 'https://www.googleapis.com/oauth2/v4/token'
+request_type: POST
+callback: >
+  {% log response, type: 'response object' %}
+  {% assign response_hash = response.body | parse_json %}
+  {% log response_hash, type:'response body as hash' %}
+request_headers: '{
+  "content-type":"application/json"
+}'
+---
+{
+	"client_secret":"{{ context.constants.client_secret }}",
+	"grant_type":"refresh_token",
+	"refresh_token":"{{ context.constants.refresh_token}}",
+	"client_id":"{{ context.constants.client_id }}"
+}

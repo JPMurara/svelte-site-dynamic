@@ -1,0 +1,11 @@
+query faq_page_get($per_page: Int = 2000, $page: Int = 1) {
+	records(
+		per_page: $per_page
+		page: $page
+		filter: { table: { exact: "faq" } }
+	) {
+		results {
+			properties
+		}
+	}
+}

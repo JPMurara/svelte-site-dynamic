@@ -1,0 +1,46 @@
+name: about_single
+metadata:     
+  collection: true
+  description: A collection of about page
+  public_read: true
+  display_name: Single About Page
+  public_write: false
+  public_delete: false
+  collection_url: 
+properties:
+- name: title
+  type: string   
+  metadata:     
+     type: short_text
+     private: false
+     required: false
+     display_name: Title
+     table_display: true
+     display_priority: 9
+- name: meta_title
+  type: string   
+  metadata:     
+     type: short_text
+     private: false
+     required: false
+     display_name: Meta Title
+     table_display: false
+     display_priority: 8
+- name: meta_desc
+  type: text   
+  metadata:     
+     type: long_text
+     private: false
+     required: false
+     display_name: Meta Desc
+     table_display: false
+     display_priority: 7
+- name: content
+  type: text   
+  metadata:     
+     type: rich_text
+     private: false
+     required: false
+     display_name: Content
+     table_display: false
+     display_priority: 5

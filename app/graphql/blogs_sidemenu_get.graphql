@@ -1,0 +1,8 @@
+query blogs_get($per_page: Int = 10, $page: Int = 1) {
+	records(per_page: $per_page, page: $page, filter: { table: { exact: "blogs" } }) {
+		results {
+			slug: property(name: "slug")
+			name: property(name: "title")
+		}
+	}
+}

@@ -1,0 +1,27 @@
+name: menus
+metadata:
+  display_name: Menus
+  description: Menus
+  public_read: true
+  public_write: false
+  public_delete: false
+  collection: true
+properties:
+  - name: menu_items
+    type: array
+    metadata:
+      type: array
+      private: false
+      required: false
+      display_name: Menu Items
+      display_priority: 3
+      table_display: false
+  - name: title
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: Title
+      display_priority: 8
+      table_display: true

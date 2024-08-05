@@ -1,0 +1,11 @@
+query side_menu_get($per_page: Int = 2000, $page: Int = 1) {
+	records(per_page: $per_page, page: $page, filter: { table: { exact: "side_menu" } }) {
+		results {
+			id
+			created_at
+			updated_at
+			table
+			properties
+		}
+	}
+}

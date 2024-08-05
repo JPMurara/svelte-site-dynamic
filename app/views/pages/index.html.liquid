@@ -1,0 +1,24 @@
+{%- liquid
+  assign assets = '[{"path": "_app/client/_app/immutable/assets/_layout.Y-o2aew.css"},{"path": "_app/client/_app/immutable/assets/0.BDmYgnBo.css"},{"path": "_app/client/_app/immutable/assets/Footer.BOqHSdRe.css"},{"path": "_app/client/_app/immutable/assets/MenuAside.iCPKaZ3b.css"},{"path": "_app/client/_app/immutable/entry/app.HfbxA-UZ.js"},{"path": "_app/client/_app/immutable/entry/start.CI-jAlDf.js"},{"path": "_app/client/_app/immutable/chunks/entry.DxAwd614.js"},{"path": "_app/client/_app/immutable/chunks/index.BSEiThIP.js"}, {"path": "_app/env.js"}, {"path": "_app/handler.js"}, {"path": "_app/index.js"}, {"path": "_app/shims.js"}]' | parse_json
+-%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  {% for asset in assets %}
+    {% if asset.path contains '.css' %}
+      <link rel="stylesheet" href="{{ asset.path | asset_url }}">
+    {% endif %}
+  {% endfor %}
+</head>
+<body>
+  <div id="svelte-app"></div>
+  {% for asset in assets %}
+    {% if asset.path contains '.js' %}
+      <script src="{{ asset.path | asset_url }}" defer></script>
+    {% endif %}
+  {% endfor %}
+</body>
+</html>

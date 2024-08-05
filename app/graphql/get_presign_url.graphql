@@ -1,0 +1,6 @@
+mutation get_presign_url {
+	property_upload_presigned_url(model_schema_name: "generic_form", property_name: "attachment") {
+		upload_url
+		upload_url_payload
+	}
+}

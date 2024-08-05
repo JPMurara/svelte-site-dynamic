@@ -1,0 +1,30 @@
+query information_get($per_page: Int = 2000, $page: Int = 1, $slug: String, $serviceId: String) {
+	records(
+		per_page: $per_page
+		page: $page
+		filter: {
+			table: { exact: "modules/infopages/info_category" }
+			properties: { name: "slug", value: $slug }
+		}
+		sort: { properties: { order: ASC, name: "slug" } }
+	) {
+		results {
+			name: property(name: "name")
+			slug: property(name: "slug")
+			articles: related_records(
+				join_on_property: "id"
+				foreign_property: "categories"
+				table: "information"
+				filter: { properties: { name: "service", value: $serviceId } }
+			) {
+				name: property(name: "name")
+				slug: property(name: "slug")
+				meta_title: property(name: "meta_title")
+				service: related_record(join_on_property: "service", table: "services") {
+					slug: property(name: "slug")
+					name: property(name: "name")
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+query services_get_all($per_page: Int = 2000, $page: Int = 1) # $slug: String
+{
+	records(
+		per_page: $per_page
+		page: $page
+		filter: {
+			table: { exact: "services" }
+			# properties: {name: "slug", value: $slug}
+		}
+	) {
+		results {
+			id
+			title: property(name: "title")
+			slug: property(name: "slug")
+		}
+	}
+}

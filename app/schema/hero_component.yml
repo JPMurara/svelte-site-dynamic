@@ -1,0 +1,36 @@
+name: hero_component
+metadata:
+  display_name: Component Hero
+  description: Hero component data
+  public_read: true
+  public_write: false
+  public_delete: false
+  collection: true
+properties:
+  - name: title
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: title
+      display_priority: 9
+      table_display: true
+  - name: subtitle
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: subtitle
+      display_priority: 8
+      table_display: false
+  - name: content
+    type: text
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: content
+      display_priority: 7
+      table_display: false

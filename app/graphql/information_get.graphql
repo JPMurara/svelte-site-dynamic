@@ -1,0 +1,38 @@
+query get_info_collection_pages_with_articles(
+	$id: ID
+	$slug: String
+	$per_page: Int = 30
+	$page: Int = 1
+) {
+	models(
+		filter: {
+			name: { exact: "modules/infopages/info_collection_page" }
+			id: { value: $id }
+			properties: [{ name: "slug", value: $slug }]
+			deleted_at: { exists: false }
+		}
+		per_page: $per_page
+		page: $page
+	) {
+		total_entries
+		total_pages
+		results {
+			id
+			created_at
+			updated_at
+			properties
+			articles: related_models(
+				model_schema_name: "modules/infopages/info_article"
+				join_on_property: "id"
+				foreign_property: "info_collection_page_id"
+				limit: 3
+				sort: { random_sort: true }
+			) {
+				id
+				name: property(name: "name")
+				slug: property(name: "slug")
+				content: property(name: "blurb")
+			}
+		}
+	}
+}

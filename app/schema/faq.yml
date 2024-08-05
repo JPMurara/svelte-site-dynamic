@@ -1,0 +1,37 @@
+name: faq
+metadata:     
+  collection: true
+  description: Collection of faq's
+  public_read: true
+  display_name: FAQ
+  public_write: false
+  public_delete: false
+  collection_url: faq
+properties:
+- name: answer
+  type: text   
+  metadata:     
+     type: rich_text
+     private: false
+     required: false
+     display_name: Answer
+     table_display: true
+     display_priority: 0
+- name: question
+  type: string   
+  metadata:     
+     type: short_text
+     private: false
+     required: false
+     display_name: Question
+     table_display: true
+     display_priority: 8
+- name: category
+  type: string
+  metadata: 
+    type: short_text
+    private: false
+    required: true
+    display_name: Category (this has to be one of the main services)
+    table_display: true
+    display_priority: 7

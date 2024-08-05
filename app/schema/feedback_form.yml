@@ -1,0 +1,72 @@
+name: feedback_form
+metadata:
+  display_name: Feedback forms
+  description: Feedback forms
+  public_read: false
+  public_write: true
+  public_delete: false
+  collection: true
+properties:
+  - name: name
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: true
+      display_name: Name
+      display_priority: 10
+      table_display: true
+  - name: email
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: true
+      display_name: Email
+      display_priority: 8
+      table_display: true
+  - name: phone
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: true
+      display_name: Phone
+      display_priority: 8
+      table_display: false
+  - name: feedback
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: true
+      display_name: Feedback
+      display_priority: 3
+      table_display: false
+  - name: message
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: true
+      display_name: Message
+      display_priority: 3
+      table_display: false
+  - name: page
+    type: string
+    metadata:
+      type: string
+      private: false
+      required: false
+      display_name: Page
+      display_priority: 2
+      table_display: false
+  - name: honeypot
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: Honeypot
+      display_priority: 7
+      table_display: false

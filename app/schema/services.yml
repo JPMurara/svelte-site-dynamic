@@ -1,0 +1,101 @@
+name: services
+metadata:     
+  collection: true
+  description: Content for Service Pages
+  public_read: true
+  display_name: Services
+  public_write: false
+  public_delete: false
+properties:
+- name: breadcrumbs
+  type: array   
+  metadata:     
+     type: array
+     private: false
+     required: false
+     display_name: breadcrumbs
+     table_display: false
+     display_priority: 6
+- name: content
+  type: text   
+  metadata:     
+     type: rich_text
+     private: false
+     required: false
+     display_name: content
+     table_display: false
+     display_priority: 1
+- name: feature_image
+  type: string   
+  metadata:     
+     type: image
+     private: false
+     required: false
+     display_name: banner Image (if no image set, will use fallback image from constants)
+     table_display: false
+     display_priority: 13
+- name: form_heading
+  type: string   
+  metadata:     
+     type: short_text
+     private: false
+     required: false
+     display_name: form heading
+     table_display: false
+     display_priority: 2
+- name: introduction
+  type: text   
+  metadata:     
+     type: rich_text
+     private: false
+     required: false
+     display_name: introduction
+     table_display: false
+     display_priority: 3
+- name: menu
+  type: integer  
+  belongs_to: menus 
+  metadata:     
+     type: one_to_one
+     private: false
+     required: false
+     display_name: Side menu
+     table_display: false
+     display_priority: 4
+- name: meta_desc
+  type: text   
+  metadata:     
+     type: long_text
+     private: false
+     required: false
+     display_name: meta desc
+     table_display: false
+     display_priority: 7
+- name: meta_title
+  type: string   
+  metadata:     
+     type: short_text
+     private: false
+     required: false
+     display_name: meta title
+     table_display: false
+     display_priority: 9
+- name: slug
+  type: string   
+  metadata:     
+     type: short_text
+     private: false
+     required: false
+     display_name: slug
+     table_display: true
+     display_priority: 8
+- name: title
+  type: string   
+  metadata:     
+     type: short_text
+     private: false
+     required: false
+     display_name: Page Title
+     table_display: true
+     display_priority: 11
+

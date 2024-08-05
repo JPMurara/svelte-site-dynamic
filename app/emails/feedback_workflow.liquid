@@ -1,0 +1,23 @@
+---
+name: feedback_workflow
+to: 'Get Performing <success@getperforming.com>'
+from: 'noreply@probityweb.com.au'
+reply_to: '{{ form.properties.name | replace: ",", "" }} <{{ form.properties.email }}>'
+subject: Customer Feedback
+bcc:
+cc: 
+delay: 0
+enabled: true
+trigger_condition: true
+---
+
+<h1>You Have Recieved Customer Feedback</h1>
+
+<p><strong>Summary of the review submission</strong><p>
+<p>
+    <strong>Name:</strong> {{ form.properties.name }}<br/> 
+    <strong>Email:</strong> {{ form.properties.email }}<br/> 
+    <strong>Phone Number:</strong> {{ form.properties.phone }}<br/>
+    <strong>Feedback:</strong> {{ form.properties.feedback }}<br/> 
+    <strong>Message:</strong> {{ form.properties.message }}<br/> 
+</p>

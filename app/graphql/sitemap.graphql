@@ -1,0 +1,22 @@
+query sitemap_pages($per_page: Int = 2000, $page: Int = 1) {
+	pages: admin_pages(
+		per_page: $per_page
+		page: $page
+		filter: {
+			metadata: {
+				attributes: [{ key: "type", value: "redirect" }, { key: "type", value: "admin" }]
+				exclude: true
+			}
+			slug: { not_contains: "rsc" }
+			physical_file_path: { not_contains: "__data.json" }
+		}
+		sort: { created_at: { order: ASC } }
+	) {
+		total_entries
+		total_pages
+		results {
+		slug
+			updated_at
+		}
+	}
+}

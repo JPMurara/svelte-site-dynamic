@@ -1,0 +1,100 @@
+name: main_services
+metadata:
+  display_name: Main Services
+  description: Content for Main Service Pages
+  public_read: true
+  public_write: false
+  public_delete: false
+  collection: true
+properties:
+  - name: content
+    type: text
+    metadata:
+      type: rich_text
+      private: false
+      required: false
+      display_name: content
+      display_priority: 2
+      table_display: false
+  - name: form_heading
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: form heading
+      display_priority: 3
+      table_display: false
+  - name: introduction
+    type: text
+    metadata:
+      type: rich_text
+      private: false
+      required: false
+      display_name: introduction
+      display_priority: 4
+      table_display: false
+  - name: menu
+    type: integer
+    belongs_to: menus
+    metadata:
+      type: one_to_one
+      private: false
+      required: false
+      display_name: Side menu
+      display_priority: 5
+      table_display: false
+  - name: breadcrumbs
+    type: array
+    metadata:
+      type: array
+      private: false
+      required: false
+      display_name: breadcrumbs
+      display_priority: 6
+      table_display: false
+  - name: meta_desc
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: false
+      display_name: meta desc
+      display_priority: 7
+      table_display: false
+  - name: slug
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: slug
+      display_priority: 8
+      table_display: true
+  - name: meta_title
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: meta title
+      display_priority: 9
+      table_display: false
+  - name: title
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: Page Title
+      display_priority: 11
+      table_display: true
+  - name: feature_image
+    type: string
+    metadata:
+      type: image
+      private: false
+      required: false
+      display_name: Banner Image
+      table_display: false
+      display_priority: 13

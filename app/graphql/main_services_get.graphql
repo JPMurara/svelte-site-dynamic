@@ -1,0 +1,26 @@
+query main_services_get($per_page: Int = 2000, $page: Int = 1, $slug: String) {
+	records(
+		per_page: $per_page
+		page: $page
+		filter: { table: { exact: "main_services" }, properties: { name: "slug", value: $slug } }
+	) {
+		results {
+			slug: property(name: "slug"),
+			order: property(name: "order"),
+			title: property(name: "title"),
+			content: property(name: "content"),
+			link_name: property(name: "link_name"),
+			meta_desc: property(name: "meta_desc"),
+			meta_title: property(name: "meta_title"),
+			breadcrumbs: property_array(name: "breadcrumbs"),
+			form_heading: property(name: "form_heading"),
+			introduction: property(name: "introduction"),
+			feature_image: property(name: "feature_image"),
+			thumbnail_image: property(name: "thumbnail_image")
+			side_menu: related_record(join_on_property: "menu", table: "menus") {
+				title: property(name: "title")
+				menuItems: property(name: "menu_items")
+			}
+		}
+	}
+}

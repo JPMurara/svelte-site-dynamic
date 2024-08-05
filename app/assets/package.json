@@ -1,0 +1,52 @@
+{
+    "name": "get-performing",
+    "version": "2.0.3",
+    "private": true,
+    "scripts": {
+        "dev": "dotenv -e .env.development vite --host dev",
+        "prebuild": "node ./config/fetchServices.js && node ./config/fetchCities.js && node ./config/fetchRegions.js",
+        "build:staging": "dotenv -e .env.staging -- vite build -m staging && node ./config/deleteCompressedFiles.js",
+        "copy": "node ./config/build.js",
+        "deploy:staging": "pos-cli deploy staging",
+        "preview": "vite preview",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+        "lint": "prettier --plugin-search-dir . --check . && eslint .",
+        "format": "prettier --plugin-search-dir . --write .",
+        "build:production": "npm run prebuild && dotenv -e .env.production -- vite build -m production && node ./config/build.js",
+        "deploy:production": "pos-cli deploy production"
+    },
+    "devDependencies": {
+        "@iconify/svelte": "^3.1.6",
+        "@sveltejs/kit": "^2.0.0",
+        "@sveltejs/vite-plugin-svelte": "^3.0.0",
+        "@types/node": "^20.11.25",
+        "autoprefixer": "^10.4.14",
+        "dotenv": "^16.0.1",
+        "dotenv-cli": "^7.2.1",
+        "eslint": "^8.28.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-svelte": "^2.26.0",
+        "flowbite": "^1.6.5",
+        "postcss": "^8.4.23",
+        "postcss-load-config": "^4.0.1",
+        "prettier": "^2.8.0",
+        "prettier-plugin-svelte": "^2.10.1",
+        "svelte": "^4.2.7",
+        "svelte-check": "^3.0.1",
+        "svelte-preprocess": "^5.0.3",
+        "tailwindcss": "^3.3.1",
+        "typescript": "^5.0.0",
+        "vite": "^5.0.3"
+    },
+    "type": "module",
+    "dependencies": {
+        "@fortawesome/free-brands-svg-icons": "^6.4.2",
+        "@fortawesome/free-solid-svg-icons": "^6.4.2",
+        "@sveltejs/adapter-node": "^5.2.0",
+        "@tailwindcss/typography": "^0.5.10",
+        "dotenv": "^16.1.4",
+        "flowbite": "^1.6.5",
+        "fs-extra": "^11.1.1"
+    }
+}

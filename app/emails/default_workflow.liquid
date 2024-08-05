@@ -1,0 +1,24 @@
+---
+name: default_workflow
+to: 'Get Performing <success@getperforming.com>'
+from: 'noreply@probityweb.com.au'
+reply_to: '{{ form.properties.name | replace: ",", "" }} <{{ form.properties.email }}>'
+subject: New Job Booking Enquiry
+bcc:
+cc: 
+delay: 0
+enabled: true
+trigger_condition: true
+---
+
+<h3>Booking Form Summary</h3>
+<p>
+  {% assign fields = form.properties | json | parse_json %}
+
+  {% for field in fields %}
+    {% if field[1] != blank %}
+      <b>{{ field[0] }}:</b>
+      {{ field[1] }}<br/>
+    {% endif %}
+  {% endfor %}
+</p>

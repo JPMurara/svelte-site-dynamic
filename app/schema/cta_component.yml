@@ -1,0 +1,45 @@
+name: cta_component
+metadata:
+  display_name: Component CTA
+  description: cta component data
+  public_read: true
+  public_write: false
+  public_delete: false
+  collection: true
+properties:
+  - name: title
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: title
+      display_priority: 9
+      table_display: true
+  - name: subtitle
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: subtitle
+      display_priority: 8
+      table_display: false
+  - name: button_text
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: button text
+      display_priority: 7
+      table_display: false
+  - name: form_header
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: form header
+      display_priority: 6
+      table_display: false

@@ -1,0 +1,17 @@
+﻿{%- liquid
+    graphql g = "company_info_get"
+    if g.constants.results
+        assign response = g.constants.results
+    else
+        assign response = '{"error": "Company Info constant not found"}'
+        response_status 400
+    endif
+-%}
+
+{
+"constants": {{- response -}},
+"mainServicesMenu": {{- g.mainServicesMenu.results.first.menu -}},
+"moreLinksMenu": {{- g.moreLinksMenu.results.first.menu -}},
+"serviceAreaMenu": {{- g.serviceAreaMenu.results.first.menu -}},
+"mainServices": {{- g.mainServices.results -}}
+}

@@ -1,0 +1,63 @@
+name: services_component
+metadata:
+  display_name: Component Services
+  description: services component data
+  public_read: true
+  public_write: false
+  public_delete: false
+  collection: true
+properties:
+  - name: title
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: component title
+      display_priority: 9
+      table_display: true
+  - name: content_for_life_coach
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: false
+      display_name: content for life coach element
+      display_priority: 8
+      table_display: false
+  - name: content_for_leadership_coach
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: false
+      display_name: content for leadership coach element
+      display_priority: 7
+      table_display: false
+  - name: content_for_business_coach
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: false
+      display_name: content for business coach element
+      display_priority: 6
+      table_display: false
+  - name: content_for_motivational_speaker
+    type: text
+    metadata:
+      type: long_text
+      private: false
+      required: false
+      display_name: content for motivational speaker element
+      display_priority: 5
+      table_display: false
+  - name: button_text
+    type: text
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: text for button
+      display_priority: 4
+      table_display: false

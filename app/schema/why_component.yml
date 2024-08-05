@@ -1,0 +1,37 @@
+name: why_component
+metadata:     
+  display_name: Component Why
+  description: why component data
+  public_read: true
+  public_write: false
+  public_delete: false
+  collection: true
+  collection_url: why
+properties:
+- name: title
+  type: string   
+  metadata:     
+     type: short_text
+     private: false
+     required: false
+     display_name: component title
+     table_display: true
+     display_priority: 9
+- name: subtitle
+  type: string   
+  metadata:     
+     type: short_text
+     private: false
+     required: false
+     display_name: component subtitle
+     table_display: true
+     display_priority: 8
+- name: cards
+  type: array   
+  metadata:     
+     type: array
+     private: false
+     required: false
+     display_name: cards
+     table_display: false
+     display_priority: 3

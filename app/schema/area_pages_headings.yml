@@ -1,0 +1,81 @@
+name: area_pages_headings
+metadata:
+  display_name: Area Pages Headings
+  description: group of headings for area pages
+  public_read: true
+  public_write: false
+  public_delete: false
+  collection: true
+properties:
+  - name: main_service_slug
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: main service slug
+      display_priority: 9
+      table_display: true
+  - name: heading1
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: heading 1
+      display_priority: 8
+      table_display: false
+  - name: heading2
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: heading 2
+      display_priority: 8
+      table_display: false
+  - name: heading3
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: heading 3
+      display_priority: 8
+      table_display: false
+  - name: heading4
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: heading 4
+      display_priority: 8
+      table_display: false
+  - name: heading5
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: heading 5
+      display_priority: 8
+      table_display: false
+  - name: heading6
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: heading 6
+      display_priority: 8
+      table_display: false
+  - name: heading7
+    type: string
+    metadata:
+      type: short_text
+      private: false
+      required: false
+      display_name: heading 7
+      display_priority: 8
+      table_display: false

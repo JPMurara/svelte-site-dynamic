@@ -1,0 +1,33 @@
+---
+name: feedback_form
+resource: feedback_form
+resource_owner: anyone
+email_notifications:
+- feedback_autoresponder
+- feedback_workflow
+fields:
+  properties:
+    name:
+      validation:
+        presence: 
+          message: Name is required
+    email:
+      validation:
+        presence:
+          message: Email is required
+        email: true
+    phone:
+      validation:
+        presence: 
+          message: Phone number is required
+    message:
+    feedback:
+    page:
+default_payload: |-
+  {
+    "properties_attributes": 
+    {
+      "webform": true
+    }
+  }
+---

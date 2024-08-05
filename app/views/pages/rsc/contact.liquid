@@ -1,0 +1,17 @@
+---
+slug: rsc/contact
+layout: ""
+searchable: false 
+method: get
+physical_file_path: views/pages/rsc/contact.liquid
+---
+{%- liquid
+  graphql query = "contact_get"
+  if query.records.results.first
+    assign response = query.records.results.first
+  else
+    assign response = '{"error": "can not find contact single resources"}'
+    response_status 400
+  endif
+-%}
+{{- response -}}
